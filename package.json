@@ -1,0 +1,24 @@
+{
+  "name": "cse312_p2p",
+  "version": "1.0.0",
+  "description": "Peer-to-Peer payment app being developed for CSE312 project. App will be able to transfer digital and fiat currencies between users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louismot/CSE312_P2P.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louismot/CSE312_P2P/issues"
+  },
+  "homepage": "https://github.com/louismot/CSE312_P2P#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
