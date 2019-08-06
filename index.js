@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Serving static HTML
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/myhtml.html'));
+    res.sendFile(path.join(__dirname + '/homepage.html'));
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

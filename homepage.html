@@ -11,22 +11,90 @@
   <body>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">Website Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-      <button class="btn btn-dark" type="button">Register</button>
-      </li>
-      <li class="nav-item">
-      <button class="btn btn-dark" type="button">Login</button>
-      </li>
-    </ul>
-  </div>
-    </nav>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <!-- Register button functionality-->
+            <button class="btn btn-dark" data-toggle="modal" data-target="#registerModal" type="button">Register</button>
 
+            <!-- Pop up modal - register form -->
+            <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Register form -->
+                    <form>
+                      <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" class="form-control" id="regEmail" placeholder="Enter Email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="regUsername">Username</label>
+                        <input type="text" class="form-control" id="regUsername" placeholder="Enter Username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" class="form-control" id="regPassword" placeholder="Enter Password" required>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                    <!-- end of register form -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of register modal-->
+          </li>
+          <!-- end of register button-->
+          <!-- Login button functionality -->
+          <li class="nav-item">
+            <button class="btn btn-dark" data-toggle="modal" data-target="#loginModal" type="button">Login</button>
+
+            <!-- Pop up modal - login form -->
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!-- Login form-->
+                    <form>
+                      <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" class="form-control" id="loginUsername" placeholder="Enter Username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter Password" required>
+                      </div>
+                      <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                    <!-- end of login form-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of login modal-->
+          </li>
+          <!-- end of login button -->
+        </ul>
+      </div>
+    </nav>
+    <!-- end of navbar -->
   </div>
-  </body>
+</body>
 </html>
