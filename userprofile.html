@@ -27,24 +27,6 @@
             <button class="btn btn-dark" data-toggle="modal" data-target="#notifModal" type="button">Notifications
               <span class="badge badge-light">4</span> <!-- Have to replace with actual number of notifs-->
             </button>
-
-            <!-- Pop up modal - displays list of notifs (does nothing for now) -->
-            <div class="modal fade" id="notifModal" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Notifications</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Notifs to come here
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of notifications modal-->
           </li>
           <!-- end of notifications button -->
           <li class="nav-item">
@@ -57,6 +39,23 @@
     </nav>
     <!-- end of navbar -->
 
+<!-- Pop up modal - displays list of notifs (does nothing for now) -->
+<div class="modal fade" id="notifModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notifications</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Notifs to come here
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of notifications modal-->
     <!-- Page content -->
     <!-- Displaying welcome user -->
     <div class="jumbotron jumbotron-fluid">
@@ -159,7 +158,6 @@
   </div>
 </div>
 <!-- End of withdraw modal -->
-
 
 </body>
 </html>
