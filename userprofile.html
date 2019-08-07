@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <title>Project</title>
-    <!--<link rel="stylesheet" href="mycss.css"> Not using any css as of now-->
+    <link rel="stylesheet" href="mycss.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="bodybg">
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <a class="navbar-brand" href="#">Website Name</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,110 @@
       </div>
     </nav>
     <!-- end of navbar -->
-    
+
+    <!-- Page content -->
+    <!-- Displaying welcome user -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Welcome User!</h1> <!-- Add real name -->
+        <p class="lead">@username</p> <!-- Add username -->
+        <p class="lead">Buffalo, NY</p> <!-- Add city, country -->
+      </div>
+    </div>
+    <!-- End of welcome -->
+    <h6> View Wallet and Account Balances </h6>
+    <!-- Table for Account Balance -->
+    <table class="table table-bordered table-dark w-50 mx-auto">
+      <tbody>
+        <tr>
+          <th scope="row">Wallet 1</th>
+          <td>0</td> <!-- Add real balances -->
+        </tr>
+        <tr>
+          <th scope="row">Wallet 2</th>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th scope="row">Bank Account</th>
+          <td>2000</td>
+        </tr>
+      </tbody>
+    </table>
+<!-- End of table -->
+<!-- Button for Deposit -->
+<button class="btn btn-light" data-toggle="modal" data-target="#depositModal" type="button">Deposit</button>
+
+<!-- Pop up modal - deposit form -->
+<div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Deposit into Wallet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Deposit form -->
+        <form>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio" name="wallet1" id="depositwallet1" value="option1">
+            <label class="form-check-label" for="depositwallet1">Wallet 1</label>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio" name="wallet2" id="depositwallet2" value="option2">
+            <label class="form-check-label" for="depositwallet2">Wallet 2</label>
+          </div>
+          <div class="form-group">
+            <label for="depositamt">Amount</label>
+            <input type="input" class="form-control" id="depositamt" placeholder="Enter Amount" required>
+          </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+        <!-- end of deposit form -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of deposit modal -->
+
+<!-- Button for Withdraw -->
+<button class="btn btn-light" data-toggle="modal" data-target="#withdrawModal" type="button">Withdraw</button>
+
+<!-- Pop up modal - withdraw form -->
+<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Withdraw from Wallet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Withdraw form -->
+        <form>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio" name="wallet1" id="withdrawwallet1" value="option1">
+            <label class="form-check-label" for="withdrawwallet1">Wallet 1</label>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio" name="wallet2" id="withdrawwallet2" value="option2">
+            <label class="form-check-label" for="withdrawwallet2">Wallet 2</label>
+          </div>
+          <div class="form-group">
+            <label for="withdrawamt">Amount</label>
+            <input type="input" class="form-control" id="withdrawamt" placeholder="Enter Amount" required>
+          </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+        <!-- end of withdraw form -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of withdraw modal -->
+
+
 </body>
 </html>
