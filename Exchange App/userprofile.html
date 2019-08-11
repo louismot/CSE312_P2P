@@ -109,18 +109,17 @@ require account.php;
         <!-- Deposit form -->
         <form>
           <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet1" id="depositwallet1" value="option1">
+            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet1" value="option1">
             <label class="form-check-label" for="depositwallet1">Wallet 1</label>
-          </div>
-          <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet2" id="depositwallet2" value="option2">
+            <br>
+            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet2" value="option2">
             <label class="form-check-label" for="depositwallet2">Wallet 2</label>
           </div>
           <div class="form-group">
             <label for="depositamt">Amount</label>
-            <input type="input" class="form-control" id="depositamt" placeholder="Enter Amount" required>
+            <input type="input" class="form-control" name="deposit-amount" id="depositamt" placeholder="Enter Amount" required>
           </div>
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <button type="submit" name="deposit-submit" class="btn btn-dark">Submit</button>
         </form>
         <!-- end of deposit form -->
       </div>
@@ -146,18 +145,17 @@ require account.php;
         <!-- Withdraw form -->
         <form>
           <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet1" id="withdrawwallet1" value="option1">
+            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet1" value="option6">
             <label class="form-check-label" for="withdrawwallet1">Wallet 1</label>
-          </div>
-          <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet2" id="withdrawwallet2" value="option2">
+            <br>
+            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet2" value="option6">
             <label class="form-check-label" for="withdrawwallet2">Wallet 2</label>
           </div>
           <div class="form-group">
             <label for="withdrawamt">Amount</label>
-            <input type="input" class="form-control" id="withdrawamt" placeholder="Enter Amount" required>
+            <input type="input" class="form-control" name="withdraw-amount" id="withdrawamt" placeholder="Enter Amount" required>
           </div>
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <button type="submit" name="withdraw-submit"class="btn btn-dark">Submit</button>
         </form>
         <!-- end of withdraw form -->
       </div>
