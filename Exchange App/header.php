@@ -23,9 +23,9 @@
 					
 				</a>
 				<ul>
-					<li><a href="index.php">Home</a></li>
+				<!-- 	<li><a href="index.php">Home</a></li>
 					<li><a href="account.php">Account</a></li>
-					<li><a href="#">Contacts</a></li>
+					<li><a href="#">Contacts</a></li> -->
 				</ul>
 
 				<div>

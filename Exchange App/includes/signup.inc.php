@@ -16,7 +16,7 @@ if (isset($_POST['signup-submit'])) {
 //	$zip = $_POST['zip'];
 //	$country = $_POST['country'];
 
-	if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat) ) {
+	if (empty($username) || empty($email) || empty($password) //|| empty($passwordRepeat)*/) {
 		header("Location: ../index.html?error=emptyfields&uid=".$username."&mail=".$email);
 		exit();
 	}
@@ -32,10 +32,10 @@ if (isset($_POST['signup-submit'])) {
 		header("Location: ../index.html?error=invaliduid&uid=".$email);
 		exit();
 	}
-	else if ($password !== $passwordRepeat) {
+/*	else if ($password !== $passwordRepeat) {
 		header("Location: ../index.html?error=passwordcheck&uid".$username."&mail=".$email);
 		exit();
-	}
+	}*/
 	else{
 
 		$sql = "SELECT uidUsers FROM users WHERE uidUsers=?";

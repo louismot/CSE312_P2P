@@ -1,6 +1,5 @@
 <?php
 	require "header.php";
-//	require "homepage.html";
 ?>
 
 
@@ -10,7 +9,7 @@
 
 		<?php
 
-		if (isset($_SESSION['userId'])) {
+/*		if (isset($_SESSION['userId'])) {
 
 			echo 
 			'
@@ -20,7 +19,7 @@
 		else{
 			echo '<p class="login-status">You are not logged in!</p>';
 		}
-
+*/
 		 ?>
 	</main>
 
