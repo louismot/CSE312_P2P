@@ -3,8 +3,13 @@
 if (isset($_POST['deposit-submit'])) {
 	
 	require 'udbh.inc.php';
+
 	$amount = $_POST['deposit-amount'];
 	$wallet = $_POST['wallet-deposit'];
+	$username = $_POST['deposit-username'];
+	$pwd = $_POST['deposit-pwd'];
+
+
 
 
 	if (empty($amount) || empty($wallet)) {
@@ -12,35 +17,40 @@ if (isset($_POST['deposit-submit'])) {
 		exit();	
 	}
 	else{
-		
-		$sql = "UPDATE users SET $wallet=$wallet+$amount, bank=bank-$amount WHERE idUsers= ?;";
+		$sql = "SELECT * FROM users WHERE uidUsers= '$username'";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
 			header("Location: ../userprofile.html?error=sqlerror");
 			exit();
 		}
 		else{
-			$result = mysqli_stmt_get_result($stmt);
-//			if ($row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt))) {
-
-			session_start();
-			$_SESSION['userId'] = $row['idUsers'];
-			$_SESSION['userUid'] = $row['uidUsers'];
-//			mysqli_stmt_bind_param($stmt, "i", $id);
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
-			header("Location: ../userprofile.html?deposit=success".$_SESSION['userId']);
+			if ($row = mysqli_fetch_assoc($result)) {
+
+			$pwdCheck = password_verify($pwd, $row['pwdUsers']);
+
+				if ($pwdCheck == false) {
+					header("Location: ../userprofile.html?error=wrongpwd");
+					exit();
+				}
+
+			}
+
+			$sql = "UPDATE users SET $wallet=$wallet+$amount, bank=bank-$amount WHERE uidUsers='$username'";
+			$stmt = mysqli_stmt_init($conn);
+			if (!mysqli_stmt_prepare($stmt, $sql)) {
+			header("Location: ../userprofile.html?error=sqlerror");
 			exit();
-
-//			}
-			/*session_start();
-			$_SESSION['userId'] = $row['idUsers'];
-			$_SESSION['userUid'] = $row['uidUsers'];
-//			mysqli_stmt_bind_param($stmt, "i", $id);
+		}
+		else{
 			mysqli_stmt_execute($stmt);
-			$result = mysqli_stmt_get_result($stmt);
-			header("Location: ../userprofile.html?deposit=success".$_SESSION['userId']);
-			exit();*/
+
+
+			header("Location: ../userprofile.html?deposit=success");
+			exit();
+			}
 		}
 	}
 }
+
