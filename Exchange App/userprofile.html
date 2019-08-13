@@ -107,12 +107,12 @@ require account.php;
       </div>
       <div class="modal-body">
         <!-- Deposit form -->
-        <form>
+        <form method="post" action= "includes/deposit.inc.php">
           <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet1" value="option1">
+            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet1" value="walletA">
             <label class="form-check-label" for="depositwallet1">Wallet 1</label>
             <br>
-            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet2" value="option2">
+            <input class="form-check-input" type="radio" name="wallet-deposit" id="depositwallet2" value="walletB">
             <label class="form-check-label" for="depositwallet2">Wallet 2</label>
           </div>
           <div class="form-group">
@@ -143,12 +143,12 @@ require account.php;
       </div>
       <div class="modal-body">
         <!-- Withdraw form -->
-        <form>
+        <form method="post" action= "includes/withdraw.inc.php">
           <div class="form-group form-check">
-            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet1" value="option6">
+            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet1" value="walletA">
             <label class="form-check-label" for="withdrawwallet1">Wallet 1</label>
             <br>
-            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet2" value="option6">
+            <input class="form-check-input" type="radio" name="wallet-withdraw" id="withdrawwallet2" value="walletB">
             <label class="form-check-label" for="withdrawwallet2">Wallet 2</label>
           </div>
           <div class="form-group">

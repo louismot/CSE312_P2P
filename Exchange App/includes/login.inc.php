@@ -7,6 +7,10 @@ if (isset($_POST['login-submit'])) {
 	$mailuid = $_POST['mailuid'];
 	$password = $_POST['pwd'];
 
+	//degugging code
+	$id = (int) $_SESSION['userId'];
+	//end debugging code
+
 	if (empty($mailuid) || empty($password)) {
 		header("Location: ../userprofile.html?error=emptyfields");
 		exit();	
@@ -15,7 +19,7 @@ if (isset($_POST['login-submit'])) {
 		$sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
-			header("Location: ../userprofile.html?error=sqlerror");
+			header("Location: ../index.html?error=sqlerror");
 			exit();
 		}
 		else{
@@ -23,33 +27,31 @@ if (isset($_POST['login-submit'])) {
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
 			if ($row = mysqli_fetch_assoc($result)) {
+
 				$pwdCheck = password_verify($password, $row['pwdUsers']);
+
 				if ($pwdCheck == false) {
-					header("Location: ../userprofile.html?error=wrongpwd");
+					header("Location: ../index.html?error=wrongpwd");
 					exit();
 				}
-				else if ($pwdCheck == true) {
+				else{
 					session_start();
 					$_SESSION['userId'] = $row['idUsers'];
 					$_SESSION['userUid'] = $row['uidUsers'];
 
-					header("Location: ../userprofile.html?login=success");
-					exit();
-				}
-				else{
-					header("Location: ../userprofile.html?error=wrongpwd");
+					header("Location: ../userprofile.html?login=success".$_SESSION['userId']);
 					exit();
 				}
 			}
 			else{
-				header("Location: ../userprofile.html?error=nouser");
+				header("Location: ../index.html?error=nouser");
 				exit();
 			}
 		}
 	}
 }
 else{
-	header("Location: ../userprofile.html");
+	header("Location: ../index.html");
 	exit();
 }
 
