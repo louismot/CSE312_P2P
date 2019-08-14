@@ -40,9 +40,23 @@ if (isset($_POST['deposit-submit'])) {
 				header("Location: ../userprofile.php?deposit=fail=negative-funds");
 				exit();
 			}
-			else{
+			else if($wallet == "walletA"){
 
-				$sql = "UPDATE users SET $wallet=$wallet+$amount, bank=bank-$amount WHERE uidUsers='$username'";
+				$sql = "UPDATE users SET $wallet=$wallet+($amount*.5), bank=bank-$amount WHERE uidUsers='$username'";
+				$stmt = mysqli_stmt_init($conn);
+				if (!mysqli_stmt_prepare($stmt, $sql)) {
+				header("Location: ../userprofile.php?error=sqlerror");
+				exit();
+				}
+				else{
+					mysqli_stmt_execute($stmt);
+					header("Location: ../userprofile.php?deposit=success");
+					exit();
+				}
+			}
+			else if($wallet == "walletB"){
+
+				$sql = "UPDATE users SET $wallet=$wallet+($amount*.8), bank=bank-$amount WHERE uidUsers='$username'";
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 				header("Location: ../userprofile.php?error=sqlerror");

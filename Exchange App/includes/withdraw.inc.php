@@ -37,13 +37,27 @@ if (isset($_POST['withdraw-submit'])) {
 				}
 
 			}
-			if ($row['$wallet-withdraw']-$amount < 0) {
+			if (($wallet=="walletA" && $row[$wallet]-($amount*2) < 0)||($wallet=="walletB" && $row[$wallet]-($amount*1.25) < 0)) {
 				header("Location: ../userprofile.php?withdraw=fail=negative-funds");
 				exit();
 			}
-			else{
+			else if($wallet == "walletA"){
 
-				$sql = "UPDATE users SET $wallet=$wallet-$amount, bank=bank+$amount WHERE uidUsers='$username'";
+				$sql = "UPDATE users SET $wallet=$wallet-($amount), bank=bank+($amount*2) WHERE uidUsers='$username'";
+				$stmt = mysqli_stmt_init($conn);
+				if (!mysqli_stmt_prepare($stmt, $sql)) {
+				header("Location: ../userprofile.php?error=sqlerror");
+				exit();
+				}
+				else{
+					mysqli_stmt_execute($stmt);
+					header("Location: ../userprofile.php?withdraw=success");
+					exit();
+				}
+			}
+			else if($wallet == "walletB"){
+
+				$sql = "UPDATE users SET $wallet=$wallet-$amount, bank=bank+($amount*1.25) WHERE uidUsers='$username'";
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 				header("Location: ../userprofile.php?error=sqlerror");

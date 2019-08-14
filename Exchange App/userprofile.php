@@ -13,6 +13,13 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      //JQuery code here!
+
+      });
+    </script>
   </head>
   <body class="bodybg">
     <!-- Nav Bar -->
@@ -67,14 +74,15 @@ session_start();
     <!-- Displaying welcome user -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">Welcome User!</h1> <!-- Add real name -->
-        <p class="lead">@username</p> <!-- Add username -->
+        <h1 class="display-4">Welcome <?php echo $_SESSION['userUid'] ?>!</h1> <!-- Add real name -->
+        <p class="lead"><?php echo '@'.$_SESSION['userUid'] ?></p> <!-- Add username -->
         <p class="lead">Buffalo, NY</p> <!-- Add city, country -->
       </div>
     </div>
     <!-- End of welcome -->
     <h6> View Wallet and Account Balances </h6>
     <!-- Table for Account Balance -->
+    <div>
     <table class="table table-bordered table-dark w-50 mx-auto">
 
     <?php
@@ -98,23 +106,24 @@ session_start();
 
       <tbody>
         <tr>
-          <th scope="row">Wallet 1</th>
+          <th scope="row">Bytecoin</th>
           <td>
             <?php echo $walletA; ?>
           </td> <!-- Add real balances -->
         </tr>
         <tr>
-          <th scope="row">Wallet 2</th>
+          <th scope="row">Heavycoin</th>
           <td><?php echo $walletB ?></td>
         </tr>
         <tr>
-          <th scope="row">Bank Account</th>
+          <th scope="row">USD Bank Account</th>
           <td><?php echo $bank ?></td>
         </tr>
       </tbody>
     </table>
+  </div>
 <!-- End of table -->
-
+/*
 <!-- Button for Transfer -->
 <button class="btn btn-light" data-toggle="modal" data-target="#withdrawModal" type="button">Transfer</button>
 
@@ -174,7 +183,13 @@ session_start();
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Deposit into Wallet</h5>
+        <h5 class="modal-title">
+        Deposit into Wallet
+        <br>
+        1 USD = .5 Bytecoin
+        <br>
+        1 USD = .8 Heavycoin
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -218,7 +233,13 @@ session_start();
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Withdraw from Wallet</h5>
+        <h5 class="modal-title">
+          Withdraw from Wallet
+          <br>
+          1 USD = .5 Bytecoin
+          <br>
+          1 USD = .8 Heavycoin
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
