@@ -74,9 +74,7 @@ session_start();
     <!-- Displaying welcome user -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">Welcome <?php echo $_SESSION['userUid'] ?>!</h1> <!-- Add real name -->
-        <p class="lead"><?php echo '@'.$_SESSION['userUid'] ?></p> <!-- Add username -->
-        <p class="lead">Buffalo, NY</p> <!-- Add city, country -->
+        <h1 class="display-4">Welcome @<?php echo $_SESSION['userUid'] ?>!</h1>
       </div>
     </div>
     <!-- End of welcome -->
@@ -125,10 +123,10 @@ session_start();
 <!-- End of table -->
 /*
 <!-- Button for Transfer -->
-<button class="btn btn-light" data-toggle="modal" data-target="#withdrawModal" type="button">Transfer</button>
+<button class="btn btn-light" data-toggle="modal" data-target="#transferModal" type="button">Transfer</button>
 
 <!-- Pop up modal - Transfer form -->
-<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="transferModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -152,19 +150,19 @@ session_start();
           </div>
           <div class="form-group">
             <label for="transferamt">Amount</label>
-            <input type="input" class="form-control" name="transfer-amount" id="withdrawamt" placeholder="Enter Amount" required>
+            <input type="input" class="form-control" name="transfer-amount" id="transferamt" placeholder="Enter Amount" required>
           </div>
           <div class="form-group">
-            <label for="username">Send Too</label>
-            <input type="text" class="form-control" name="transfer-rUsername" id="depositamt" placeholder="Enter Their Username" required>
+            <label for="to-username">Send To</label>
+            <input type="text" class="form-control" name="transfer-rUsername" id="to-username" placeholder="Enter Their Username" required>
           </div>
           <div class="form-group">
             <label for="username">Your Username</label>
-            <input type="text" class="form-control" name="transfer-sUsername" id="depositamt" placeholder="Enter Your Username" required>
+            <input type="text" class="form-control" name="transfer-sUsername" id="username" placeholder="Enter Your Username" required>
           </div>
           <div class="form-group">
             <label for="pwd">Your Password</label>
-            <input type="password" class="form-control" name="transfer-pwd" id="depositamt" placeholder="Enter Password" required>
+            <input type="password" class="form-control" name="transfer-pwd" id="pwd" placeholder="Enter Password" required>
           </div>
           <button type="submit" name="transfer-submit"class="btn btn-dark">Submit</button>
         </form>
