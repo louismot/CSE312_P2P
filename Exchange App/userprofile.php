@@ -121,7 +121,6 @@ session_start();
     </table>
   </div>
 <!-- End of table -->
-/*
 <!-- Button for Transfer -->
 <button class="btn btn-light" data-toggle="modal" data-target="#transferModal" type="button">Transfer</button>
 
