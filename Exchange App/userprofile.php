@@ -144,7 +144,7 @@ session_start();
             <input class="form-check-input" type="radio" name="wallet-transfer" id="withdrawwallet2" value="walletB">
             <label class="form-check-label" for="transferwallet2">Wallet 2</label>
             <br>
-            <input class="form-check-input" type="radio" name="bank-transfer" id="withdrawwallet2" value="bank">
+            <input class="form-check-input" type="radio" name="wallet-transfer" id="withdrawbank" value="bank">
             <label class="form-check-label" for="transferbank">Bank</label>
           </div>
           <div class="form-group">
