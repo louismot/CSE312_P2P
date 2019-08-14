@@ -13,11 +13,14 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       //JQuery code here!
-
+      $(document).ready(function() {
+        $('#notifbutton').click(function(evt){
+          $('#modbod').load('notifs.php');
+          evt.preventDefault();
+        });
       });
     </script>
   </head>
@@ -31,14 +34,8 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item">
-              <!-- Friends button functionality -->
-            <a class="btn btn-dark" href="friends.html">Friends </a>
-          </li>
-          <!-- end of friends button -->
-          <li class="nav-item">
               <!-- Notifications button functionality -->
-            <button class="btn btn-dark" data-toggle="modal" data-target="#notifModal" type="button">Notifications
-              <span class="badge badge-light">4</span> <!-- Have to replace with actual number of notifs-->
+            <button class="btn btn-dark" data-toggle="modal" data-target="#notifModal" id="notifbutton" type="button">Notifications
             </button>
           </li>
           <!-- end of notifications button -->
@@ -63,26 +60,8 @@ session_start();
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+        <div id="modbod" class="modal-body" >
 
-        <?php
-
-    $userId = $_SESSION['userId'];
-
-    $sql = "SELECT * FROM users WHERE idUsers= '$userId'";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if($resultCheck > 0){
-      if ($row = mysqli_fetch_assoc($result)) {
-        $notifications = $row['Notifications'];
-
-
-      }
-    }
-   ?>
-
-        <?php echo $notifications ?>
       </div>
     </div>
   </div>
