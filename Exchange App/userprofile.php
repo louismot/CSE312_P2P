@@ -17,8 +17,10 @@ session_start();
   <script>
       //JQuery code here!
       setInterval(function(){
-//      $note = $_SESSION['Notifications'];
        $('#modbod').load('notifs.php');
+        $(document.getElementById("modbod")).change(function(){
+        alert("The text has been changed.");
+}); 
        evt.preventDefault();
      }, 2000) /* time in milliseconds (ie 2 seconds)*/
 

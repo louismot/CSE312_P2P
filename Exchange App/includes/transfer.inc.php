@@ -103,7 +103,7 @@ if (isset($_POST['transfer-submit'])) {
 			}
 			mysqli_stmt_execute($stmt2);
 
-			header("Location: ../userprofile.php?transfer=success".$amount."/".$wallet."/".$rUsername."/".$sUsername."/".$pwd."/");
+			header("Location: ../userprofile.php?transfer=success");
 			exit();
 		}
 //		}
