@@ -39,6 +39,11 @@ if (isset($_POST['transfer-submit'])) {
 				}
 
 			}
+			//check legal transaction
+			if ($row[$wallet]-$amount < 0) {
+				header("Location: ../userprofile.php?deposit=fail=negative-funds");
+				exit();
+			}
 
 			//update rUsers data
 			$sql = "UPDATE users SET $wallet=$wallet-$amount WHERE uidUsers='$sUsername'";
@@ -79,7 +84,6 @@ if (isset($_POST['transfer-submit'])) {
 		}
 
 			//update rUsers data
-//		else{
 		$sql2 = "UPDATE users SET $wallet=$wallet+$amount WHERE uidUsers='$rUsername'";
 		$stmt2 = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt2, $sql2)) {
