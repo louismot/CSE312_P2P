@@ -201,7 +201,7 @@ session_start();
               </div>
               <div class="form-group">
                 <label for="depositamt">Amount</label>
-                <input type="input" class="form-control" name="depUSD osit-amount" id="depositamt" placeholder="Enter Amount" required>
+                <input type="input" class="form-control" name="deposit-amount" id="depositamt" placeholder="Enter Amount" required>
               </div>
               <div class="form-group">
                 <label for="username">Username</label>
@@ -251,7 +251,7 @@ session_start();
               </div>
               <div class="form-group">
                 <label for="withdrawamt">Amount</label>
-                <input type="input" class="form-control" name="withUSD draw-amount" id="withdrawamt" placeholder="Enter Amount" required>
+                <input type="input" class="form-control" name="withdraw-amount" id="withdrawamt" placeholder="Enter Amount" required>
               </div>
               <div class="form-group">
                 <label for="username">Username</label>

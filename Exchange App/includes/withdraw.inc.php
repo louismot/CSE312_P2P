@@ -13,11 +13,8 @@ if (isset($_POST['withdraw-submit'])) {
 
 
 
-	if (empty($amount) || empty($wallet)) {
-		header("Location: ../userprofile.php?error=emptyfields");
-		exit();	
-	}
-	else{
+
+
 		$sql = "SELECT * FROM users WHERE uidUsers= '$username'";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -70,5 +67,5 @@ if (isset($_POST['withdraw-submit'])) {
 				}
 			}
 		}
-	}
+	
 }
