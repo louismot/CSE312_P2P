@@ -20,7 +20,7 @@ session_start();
        $('#modbod').load('notifs.php');
         $(document.getElementById("modbod")).change(function(){
         alert("The text has been changed.");
-}); 
+});
        evt.preventDefault();
      }, 2000) /* time in milliseconds (ie 2 seconds)*/
 
@@ -30,7 +30,7 @@ session_start();
   <body class="bodybg">
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <a class="navbar-brand" href="#">Website Name</a>
+      <a class="navbar-brand" href="#">P2P Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
